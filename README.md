@@ -1,1 +1,1 @@
-# Ece2210
+# Repo for ECE2210 Coursework (Spring 2026)
