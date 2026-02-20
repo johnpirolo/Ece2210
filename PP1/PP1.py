@@ -17,7 +17,7 @@ if (redirectIOtoFile):
 ############ Your input starts here. Do NOT change the above code!!!#################
 
 def verify_password(pwd):
-    forbidden_ascii = []
+    # Would Probably be easier to just to convert pwd to list of ascii #'s and compare it to list of required ascii ranges https://www.asciitable.com/
     lower = "abcdefghijklmnopqrstuvwxyz"
     upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     digits = "0123456789"
