@@ -59,7 +59,10 @@ def draw_rhombus(h, s):
 def is_triangle(l1, l2, l3):
     """ Check if three lengths can form a triangle.
     """
-    pass # Replace pass with your code
+    if l1 + l2 < l3 or l2 + l3 < l1 or l3 + l1 < l2:
+        return False
+    return True
+     # Replace pass with your code
 
 
 # Problem 2.(b)
@@ -68,7 +71,11 @@ def is_triangle(l1, l2, l3):
 def interative_is_triangle():
     """ Check if user-entered three lengths can form a triangle.
     """
-    pass # Replace pass with your code
+    l1 = input("L1: ")
+    l2 = input("L2:")
+    l3 = input("L3: ")
+    return is_triangle(int(l1), int(l2), int(l3))
+     # Replace pass with your code
 
 
 # Problem 3
@@ -76,7 +83,15 @@ def interative_is_triangle():
 def guess_number(k):
     """ Guess number k in [1, 9999].
     """
-    pass # Replace pass with your code
+    while True: 
+        guess = int(input("Guess number k in [1,9999]"))
+        if guess == k: 
+            print("well guessed")
+            break 
+        elif guess > 1 or guess < 9999:
+            print("Invalid Input")
+        
+     # Replace pass with your code
 
 
 # Problem 4
