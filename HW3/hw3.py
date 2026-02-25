@@ -15,7 +15,8 @@ redirectIOtoFile = True
 
 if(redirectIOtoFile):
     # redirect stdin to a file
-    sys.stdin = open('input', 'r')
+    #.stdin = open('input', 'r')
+    pass
 
 ############ Your input starts here. Do NOT change the above code!!! #################
 
@@ -25,6 +26,7 @@ if(redirectIOtoFile):
 def rhombus():
     """ Draw a rhombus of h=5.
     """
+    draw_rhombus( 5,"*")
     pass # Replace pass with your code
 
 
@@ -33,7 +35,23 @@ def rhombus():
 def draw_rhombus(h, s):
     """ Draw a rhombus of height h using symbol s.
     """
-    pass # Replace pass with your code
+    # Counter will be the amount of symbols to display
+    # Midpoint will be used to determine if we should be adding or subtracting fro, counter
+    counter = 1 
+    midpoint = h // 2 
+    layer_count = 0 
+    while layer_count < h:
+        if layer_count >= midpoint:
+            print(f"{" " * (layer_count - midpoint)} {s*counter}\t\n")
+            layer_count += 1
+            counter -= 2
+        else:
+            print(f"{" " * ((midpoint-layer_count) + 1)}{s*counter}\t\n")
+            layer_count += 1
+            counter += 2
+        
+
+     # Replace pass with your code
 
 
 # Problem 2.(a)
