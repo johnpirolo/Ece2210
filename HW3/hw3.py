@@ -97,19 +97,38 @@ def guess_number(k):
 # Problem 4
 # Complete the function below following the requirements given in hw3.pdf
 def estimate_pi():
-    pass # Replace pass with your code
+    k = 0 
+    total_sum = 0 
+    iterations = 2
+    while k < 10:
+        numerator = math.factorial(4 * k) * (1103 + 26390 * k)
+        denominator = (math.factorial(k)**4) * (396**(4 * k))
+        term = numerator / denominator
+        total_sum += term 
+        k+=1
+    multiplier = (2*math.sqrt(2) / 9801)
+    one_over_pi = multiplier * total_sum 
+    print(one_over_pi)
+    print(f"Pi is approximated to be {1/one_over_pi}")
+     # Replace pass with your code
 
 
 # Problem 5.a)
 # Complete the function below following the requirements given in hw3.pdf
 def check_digit(n):
-    pass # Replace pass with your code
+    n = str(n)
+    for i in n:
+        if int(i) % 2 != 0:
+            print("Odd")
+    print("Even")
+     # Replace pass with your code
 
 
 # Problem 5.b)
 # Complete the function below following the requirements given in hw3.pdf
 def find_odd_digit_numbers(a, b):
-    pass # Replace pass with your code
+    for i in range(a, b):
+        check_digit(i)
 
 
 ################# Your input ends here. Do NOT change the following code!!! ######################
@@ -140,9 +159,9 @@ if __name__ == '__main__':
     print()
     print()
     print("P3: The following is the output of guess_number():")
-    guess_number(56)
-    guess_number(3467)
-    guess_number(1)
+   # guess_number(56)
+    #guess_number(3467)
+    #guess_number(1)
 
     print()
     print()
