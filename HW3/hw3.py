@@ -88,7 +88,7 @@ def guess_number(k):
         if guess == k: 
             print("well guessed")
             break 
-        elif guess > 1 or guess < 9999:
+        elif guess < 1 or guess > 9999:
             print("Invalid Input")
         
      # Replace pass with your code
