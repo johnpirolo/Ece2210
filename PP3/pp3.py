@@ -1,22 +1,19 @@
 """
 * pp3.py
-* Jonathan Pirolo  <<-----  YOU MUST CHANGE the comments and add your name
-* jpirolo          <<-----  change to your username
+* Jonathan Pirolo  
+* jpirolo         
 * ECE 2210, Spring 2026
 * PP3
 *
-* NOTE:  You must update all of the following comments!
-* 
 * Purpose:  Take in a sample set of threat levels from snort, process the set and determine if a security breach is likely
 program should be able to process multiple sets and ends when given a exit code
 *
 * Assumptions: threat level is always non-negative and <=  2^31. false-postives can happen so we set a threshold
-false_alarm_count, which is the min amount of packets that need to be d
+false_alarm_count. We can only process a max of 500 samples at a time and a minimum of 3
 
-*
-* Bugs:  
-*
-* See the Programming Guide for requirements
+
+* Bugs: There may be some formatting errors, but I didnt find anything wrong functionally.
+
 """
 
 # You CANNOT import other modules
@@ -56,9 +53,7 @@ def process_one_sample_set(dict_threat_count, min_threat_level, false_alarm_coun
 		min_threat_level: The user-defined min_threat_value.
 		false_alarm_count: The user-defined false_alarm_count.
 	"""
-	# 
-	# Does not cover instance where theres a max value with inadequate false alarm count
-	# del my_dic[key]
+	
 	highest = None
 	for threat in dict_threat_count:
 		if threat >= min_threat_level and dict_threat_count[threat] >= false_alarm_count:
@@ -66,7 +61,7 @@ def process_one_sample_set(dict_threat_count, min_threat_level, false_alarm_coun
 				highest = threat
 	if highest is not None:
 		occurrences = dict_threat_count[highest]
-		print(f"Threat detected with level {highest} and appears {occurrences} times.")
+		print(f"Threat detected with level {highest} and appears {occurrences} times")
 	else:
 		print("No threat detected")
 
@@ -85,9 +80,11 @@ def process_sample_sets():
 
 	# The following while-loop reads in the min_threat_level. 
 	while True:
-		min_threat_level = input("What is the minimum threat level (or -1 to exit)?")
+		min_threat_level = input("What is the minimum threat level (or -1 to exit)?\n")
 		if if_int(min_threat_level) and int(min_threat_level)>=MINTHRESH:
 			min_threat_level = int(min_threat_level)
+			print(f"The minimum threat level is {min_threat_level}")
+
 			break
 		elif if_int(min_threat_level) and int(min_threat_level) == -1:
 			sys.exit()
@@ -97,15 +94,17 @@ def process_sample_sets():
 
 	# The following while-loop reads in the false_alarm_count. 
 	while True:	
-		false_alarm_count = input("what is the false alarm threshold (or -1 to exit)?")	# Replace the break with your code.
+		false_alarm_count = input("What is the false alarm threshold (or -1 to exit)?\n")	# Replace the break with your code.
 		if if_int(false_alarm_count) and int(false_alarm_count) == -1:
 			sys.exit()
 		elif if_int(false_alarm_count) and int(false_alarm_count) >   0:
 			false_alarm_count = int(false_alarm_count)
+			print(f"A false alarm if the count is < {false_alarm_count}")
 			break
 		else:
 			print("The false alarm threshold is invalid.")
 		continue
+
 	# The following while-loop continuously processes sample sets one-by-one until a negative value other than -1 is read.  		
 	sample_count = 0 
 	while True:	
@@ -122,7 +121,6 @@ def process_sample_sets():
 		elif int(l) < -1:
 			print("Goodbye")
 			sys.exit()
-			 # Replace pass with your code
 		else:
 			sample_count +=1
 			l = int(l)
@@ -130,7 +128,6 @@ def process_sample_sets():
 				dict_threat_count[l] += 1
 			else:
 				dict_threat_count[l] = 1
-			# add to dict and increase counter
 
 if __name__ == '__main__':
 	""" main function
