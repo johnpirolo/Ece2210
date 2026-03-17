@@ -3,7 +3,7 @@ The minimum threat level is invalid.
 What is the minimum threat level (or -1 to exit)?
 The minimum threat level is 6
 What is the false alarm threshold (or -1 to exit)?
-a false alarm if the count is < 3
+A false alarm if the count is < 3
 What is the threat?
 What is the threat?
 What is the threat?
