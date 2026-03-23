@@ -15,7 +15,7 @@ redirectIOtoFile = True
 
 if(redirectIOtoFile):
     # redirect stdin to a file
-    #.stdin = open('input', 'r')
+    stdin = open('/home/johnp/ece2210/HW3/input', 'r')
     pass
 
 ############ Your input starts here. Do NOT change the above code!!! #################
